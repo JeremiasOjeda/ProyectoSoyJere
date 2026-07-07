@@ -533,6 +533,20 @@ scripts/load-test.ts          # prueba de carga
 
 ---
 
+## Flujo Git (un push por etapa)
+
+Cada ítem del plan del MVP se entrega en **un commit + un push** a `origin/main`:
+
+1. Completar el todo (código funcional de esa etapa).
+2. Actualizar en `README.md`: marcar la fila como `hecho` y ajustar **Etapa actual** si corresponde.
+3. Marcar el todo como `completed` en el frontmatter del plan.
+4. Commit con mensaje: `feat(etapa-N): descripción breve`.
+5. `git push origin main`.
+
+Los todos post-MVP (`post-mvp-*`) siguen el mismo criterio cuando se aborden.
+
+---
+
 ## Fases de implementación
 
 ### Fase A — Base + infra + auth admin + versionado
