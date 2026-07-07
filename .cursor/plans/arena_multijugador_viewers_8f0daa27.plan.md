@@ -7,7 +7,7 @@ todos:
     status: pending
   - id: scaffold-vite-react
     content: Vite + React + TS + Tailwind + Express con scripts build/start para Hostinger
-    status: pending
+    status: completed
   - id: socket-hooks-store
     content: Socket.io polling adaptativo + hooks + Zustand + validación server-side de catálogo
     status: pending

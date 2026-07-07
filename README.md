@@ -4,14 +4,14 @@ Torneo de combates multijugador: 8 luchadores, builds personalizados y narració
 
 ## Etapa actual
 
-**Planificación** — repositorio inicializado, plan definido, implementación pendiente.
+**Implementación** — scaffold Vite + React + Express completado; auth admin en curso.
 
 ## Progreso del MVP
 
 | # | Etapa | Estado |
 |---|-------|--------|
 | 1 | Auth admin MVP | pendiente |
-| 2 | Scaffold Vite + React + Express | pendiente |
+| 2 | Scaffold Vite + React + Express | hecho |
 | 3 | Socket.io + Zustand + validación | pendiente |
 | 4 | Snapshots en disco | pendiente |
 | 5 | Sistema de equipamiento (9 slots) | pendiente |
