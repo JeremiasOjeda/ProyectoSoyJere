@@ -10,43 +10,43 @@ todos:
     status: completed
   - id: socket-hooks-store
     content: Socket.io polling adaptativo + hooks + Zustand + validación server-side de catálogo
-    status: pending
+    status: completed
   - id: state-snapshot
     content: Snapshot JSON del torneo en cada cambio de fase + recuperación al arrancar servidor
-    status: pending
+    status: completed
   - id: equipment-system
     content: 9 slots, matriz de ventajas, arenas, FightSimulator, reglas AFK
-    status: pending
+    status: completed
   - id: lobby-loadout
     content: Lobby (8 slots luchador + espectadores), wizard móvil, fase de mejora
-    status: pending
+    status: completed
   - id: narrative-engine
     content: NarrativeEngine modo completo, pool de variantes y anti-repetición
-    status: pending
+    status: completed
   - id: bracket-tournament
     content: Bracket fijo de 8, emparejamientos cuartos→semis→final, pantalla campeón
-    status: pending
+    status: completed
   - id: spectator-predictions
     content: Espectadores predicen ganador con un tap; % de aciertos tras cada pelea
-    status: pending
+    status: completed
   - id: fight-spectacle
     content: NarrationFeed, FightAnimation, pelea secuencial una a la vez
-    status: pending
+    status: completed
   - id: host-panel
     content: Panel host simple (iniciar, siguiente pelea, expulsar, copiar links)
-    status: pending
+    status: completed
   - id: obs-overlay
     content: Overlay OBS básico (bracket + narración actual + vida)
-    status: pending
+    status: completed
   - id: load-test-hostinger
     content: "Prueba de carga en Hostinger: 50 clientes polling simultáneo antes del primer stream"
-    status: pending
+    status: completed
   - id: version-cache-control
     content: "Versionado APP_VERSION, headers cache, VersionGuard en cliente, limpieza storage y chequeo de protocolo"
-    status: pending
+    status: completed
   - id: deploy-hostinger
     content: Deploy Cloud Startup vía GitHub o Hostinger Connector
-    status: pending
+    status: completed
   - id: post-mvp-accounts
     content: "Post-MVP: registro/login abierto para que cualquiera cree su sala y juegue con amigos"
     status: pending

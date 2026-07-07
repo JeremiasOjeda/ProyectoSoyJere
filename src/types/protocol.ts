@@ -1,3 +1,5 @@
+import type { CharacterBuild } from './equipment.js';
+
 export type GamePhase =
   | 'lobby'
   | 'loadout'
@@ -14,6 +16,41 @@ export interface Player {
   role: PlayerRole;
   eliminated: boolean;
   connected: boolean;
+  build?: CharacterBuild;
+  loadoutConfirmed?: boolean;
+  afkStrikes?: number;
+  predictionScore?: number;
+}
+
+export interface BracketMatch {
+  id: string;
+  round: 'quarter' | 'semi' | 'final';
+  fighterA: string | null;
+  fighterB: string | null;
+  winner: string | null;
+  completed: boolean;
+}
+
+export interface FightTick {
+  attackerId: string;
+  defenderId: string;
+  damage: number;
+  hpA: number;
+  hpB: number;
+}
+
+export interface NarrationLine {
+  id: string;
+  text: string;
+  phase: 'intro' | 'action' | 'result';
+}
+
+export interface PredictionResults {
+  fightId: string;
+  winnerId: string;
+  totalVotes: number;
+  correctVotes: number;
+  percentages: Record<string, number>;
 }
 
 export interface RoomState {
@@ -24,6 +61,17 @@ export interface RoomState {
   spectators: number;
   queueSize: number;
   players: Player[];
+  bracket?: BracketMatch[];
+  currentFightId?: string | null;
+  arena?: string;
+  narration?: NarrationLine[];
+  fightTicks?: FightTick[];
+  championId?: string | null;
+  loadoutDeadline?: number | null;
+  preFightDeadline?: number | null;
+  roundLabel?: string;
+  recoverable?: boolean;
+  pollingIntervalMs?: number;
 }
 
 export interface VersionInfo {
@@ -37,7 +85,9 @@ export type ServerErrorCode =
   | 'CLIENT_OUTDATED'
   | 'ROOM_FULL'
   | 'UNAUTHORIZED'
-  | 'NOT_FOUND';
+  | 'NOT_FOUND'
+  | 'INVALID_PHASE'
+  | 'ALREADY_VOTED';
 
 export interface ServerError {
   code: ServerErrorCode;

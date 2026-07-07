@@ -6,6 +6,8 @@ import { AdminLoginPage } from '@/pages/AdminLoginPage';
 import { CreateRoomPage } from '@/pages/CreateRoomPage';
 import { LobbyPage } from '@/pages/LobbyPage';
 import { HostPage } from '@/pages/HostPage';
+import { PlayPage } from '@/pages/PlayPage';
+import { OverlayPage } from '@/pages/OverlayPage';
 
 export default function App() {
   return (
@@ -17,7 +19,9 @@ export default function App() {
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/create" element={<CreateRoomPage />} />
           <Route path="/lobby/:code" element={<LobbyPage />} />
+          <Route path="/play/:code" element={<PlayPage />} />
           <Route path="/host/:code" element={<HostPage />} />
+          <Route path="/overlay/:code" element={<OverlayPage />} />
         </Routes>
       </BrowserRouter>
     </VersionGuard>

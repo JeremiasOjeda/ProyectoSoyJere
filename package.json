@@ -7,7 +7,8 @@
     "dev": "concurrently -n client,server -c cyan,magenta \"vite\" \"tsx watch src/server/index.ts\"",
     "build": "vite build && tsc -p tsconfig.server.json",
     "start": "node dist/server/index.js",
-    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "load-test": "tsx scripts/load-test.ts"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",

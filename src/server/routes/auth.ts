@@ -8,11 +8,9 @@ import {
   setHostSessionCookie,
 } from '../HostAuth.js';
 import { generateHostToken, generateRoomCode } from '../RoomManager.js';
+import { tournamentManager } from '../TournamentManager.js';
 
 const router = Router();
-
-// Salas en memoria hasta etapa de torneo completa
-const rooms = new Map<string, { hostToken: string; createdAt: number }>();
 
 router.get('/session', (req: Request, res: Response) => {
   res.json({ authenticated: isHostAuthenticated(req) });
@@ -44,10 +42,10 @@ router.post('/host-logout', (_req: Request, res: Response) => {
 
 router.post('/rooms', requireHostSession, (_req: Request, res: Response) => {
   let code = generateRoomCode();
-  while (rooms.has(code)) code = generateRoomCode();
+  while (tournamentManager.hasRoom(code)) code = generateRoomCode();
 
   const hostToken = generateHostToken();
-  rooms.set(code, { hostToken, createdAt: Date.now() });
+  tournamentManager.createRoom(code, hostToken);
 
   const origin = process.env.PUBLIC_ORIGIN ?? '';
   const base = origin || `${_req.protocol}://${_req.get('host')}`;
@@ -63,9 +61,8 @@ router.post('/rooms', requireHostSession, (_req: Request, res: Response) => {
 
 router.get('/rooms/:code/host-check', (req: Request, res: Response) => {
   const code = String(req.params.code).toUpperCase();
-  const room = rooms.get(code);
   const token = req.query.token as string | undefined;
-  if (!room || !token || room.hostToken !== token) {
+  if (!token || !tournamentManager.verifyHostToken(code, token)) {
     res.status(403).json({ ok: false });
     return;
   }
