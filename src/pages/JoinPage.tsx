@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Layout } from '@/components/Layout';
 
 export function JoinPage() {
   const navigate = useNavigate();
-  const [code, setCode] = useState('');
+  const [searchParams] = useSearchParams();
+  const [code, setCode] = useState(searchParams.get('code') ?? '');
   const [nickname, setNickname] = useState('');
 
   const submit = (e: React.FormEvent) => {

@@ -4,7 +4,7 @@ overview: "Torneo de 8 luchadores para jugar con amigos. Visión: cualquiera cre
 todos:
   - id: host-auth-mvp
     content: "Auth MVP: login con clave de admin (env), sesión firmada, solo usuarios autorizados crean salas"
-    status: pending
+    status: completed
   - id: scaffold-vite-react
     content: Vite + React + TS + Tailwind + Express con scripts build/start para Hostinger
     status: completed

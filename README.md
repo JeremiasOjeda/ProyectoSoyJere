@@ -10,7 +10,7 @@ Torneo de combates multijugador: 8 luchadores, builds personalizados y narració
 
 | # | Etapa | Estado |
 |---|-------|--------|
-| 1 | Auth admin MVP | pendiente |
+| 1 | Auth admin MVP | hecho |
 | 2 | Scaffold Vite + React + Express | hecho |
 | 3 | Socket.io + Zustand + validación | pendiente |
 | 4 | Snapshots en disco | pendiente |
