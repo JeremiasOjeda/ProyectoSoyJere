@@ -8,7 +8,8 @@
     "build": "vite build && tsc -p tsconfig.server.json",
     "start": "node dist/server/index.js",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.server.json --noEmit",
-    "load-test": "tsx scripts/load-test.ts"
+    "load-test": "tsx scripts/load-test.ts",
+    "fight-fairness": "tsx scripts/fight-fairness.ts"
   },
   "dependencies": {
     "cookie-parser": "^1.4.7",

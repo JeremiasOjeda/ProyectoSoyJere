@@ -403,8 +403,8 @@ class TournamentManager {
     room.narration = [];
     room.fightLineIndex = 0;
 
-    const fa: FighterState = { id: a.id, nickname: a.nickname, build: a.build, hp: 100, maxHp: 100 };
-    const fb: FighterState = { id: b.id, nickname: b.nickname, build: b.build, hp: 100, maxHp: 100 };
+    const fa: FighterState = { id: a.id, nickname: a.nickname, build: a.build };
+    const fb: FighterState = { id: b.id, nickname: b.nickname, build: b.build };
     const fighters = { [a.id]: fa, [b.id]: fb };
 
     room.narration.push(room.narrative.buildEquipmentLine(fa));

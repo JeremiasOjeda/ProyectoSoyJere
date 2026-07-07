@@ -18,11 +18,11 @@ export function randomArena(): Arena {
 
 export function arenaBonus(arena: Arena, tags: string[]) {
   const map: Record<Arena, Record<string, number>> = {
-    forest: { light: 10, stealthy: 10, poison: 10 },
-    desert: { heavy: 10, fire: 10, aggressive: 10 },
-    castle: { tower: 8, buckler: 8, enchanted: 8, neutral: 10 },
-    volcano: { mace: 10, fire: 10, berserker_rage: 8 },
-    ice: { ice: 10, balanced: 8 },
+    forest: { light: 6, stealthy: 6, poison: 6 },
+    desert: { heavy: 6, fire: 6, aggressive: 6 },
+    castle: { tower: 5, buckler: 5, enchanted: 5, neutral: 6 },
+    volcano: { mace: 6, fire: 6, berserker_rage: 5 },
+    ice: { ice: 6, balanced: 5 },
     arena: {},
   };
   return tags.reduce((sum, tag) => sum + (map[arena][tag] ?? 0), 0);
@@ -65,12 +65,17 @@ export function weaponArmorMod(weapon: Weapon, armor: Armor) {
   return 0;
 }
 
-export function shieldWeaponMod(shield: Shield, weapon: Weapon) {
+export function shieldDefenseBonus(shield: Shield, weapon: Weapon) {
   if (shield === 'none') return 0;
   const r = SHIELD_VS_WEAPON[shield];
   if (r.strong.includes(weapon)) return 10;
   if (r.weak.includes(weapon)) return -6;
   return 0;
+}
+
+/** @deprecated Usar shieldDefenseBonus — el escudo reduce daño recibido, no lo aumenta */
+export function shieldWeaponMod(shield: Shield, weapon: Weapon) {
+  return -shieldDefenseBonus(shield, weapon);
 }
 
 export function elementMod(element: Element, target: { helmet: string; shield: string; armor: Armor }) {
